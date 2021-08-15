@@ -1,0 +1,260 @@
+<div class="container bg-dark">
+  <div class="card-header text-center bg-info" style="border: none; border-radius: 0;">
+    <h3 class="text-uppercase font-weight-bold text-white m-0 p-2">endpoints dlr</h3>
+  </div>
+
+  <div id="table" class="row table-editable">
+    <div class="col-md-12">
+      <table class="table table-borderless" id="tablaprueba">
+        <thead class="text-white text-center">
+          <tr>
+            <th></th>
+            <th>Endpoint</th>
+            <th>Metodo</th>
+            <th>Seguridad</th>
+            <th>Tabla</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <!--
+                        class                 boolean
+          [ngClass]="{'invisibilidad': endpoint.editable}"
+        -->
+        <tbody>
+          <tr *ngFor="let endpoint of endpoints; let i = index">
+            <td class="text-white text-center">{{i+1}}</td>
+
+            <td class="text-center d-flex">
+              <input type="text" size="30" class="form-control" [(ngModel)]="endpoint.endpoint"
+                [disabled]="!endpoint.editable" [disabled]="!endpoint.editableAgregar" required>
+
+              <!-- Button modal -->
+              <button type="button" (click)="Modal(endpoint)" [ngClass]="{'invisibilidad': endpoint.editableAgregar}"
+                [ngClass]="{'invisibilidad': endpoint.agregar}" 
+                class="btn btn-info ml-1" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Ver propiedades">
+                <fa-icon [icon]="ojo"></fa-icon>
+              </button>
+              <!-- Finish Button modal -->
+
+            </td>
+
+            <td class="text-center">
+              <input type="text" size="4" class="form-control" [(ngModel)]="endpoint.metodo"
+                [disabled]="!endpoint.editable" [disabled]="!endpoint.editableAgregar" required>
+            </td>
+
+            <td class="text-center">
+              <input type="text" size="1" class="form-control" [(ngModel)]="endpoint.seguridad"
+                [disabled]="!endpoint.editable" [disabled]="!endpoint.editableAgregar" required>
+            </td>
+
+            <td class="text-center">
+              <input type="text" size="30" class="form-control" [(ngModel)]="endpoint.tabla"
+                [disabled]="!endpoint.editable" [disabled]="!endpoint.editableAgregar" required>
+            </td>
+
+            <!-----------------------------------------Botones---------------------------------------------------->
+
+            <td class="text-center">
+              <button [ngClass]="{'invisibilidad': endpoint.editable}" [ngClass]="{'invisibilidad': endpoint.agregar}"
+                (click)="editEndpoints(endpoint)" class="btn btn-warning mr-1" title="Editar">
+                <fa-icon [icon]="editar"></fa-icon>
+              </button>
+
+
+              <button [ngClass]="{'invisibilidad': !endpoint.editable}" (click)="putEndpoints(endpoint)"
+                class="btn btn-dark mr-1" title="Confirmar Edicion">
+                <fa-icon [icon]="confirmar"></fa-icon>
+              </button>
+
+              <button [ngClass]="{'invisibilidad': !endpoint.editable}" (click)="noEditEndpoints(endpoint)"
+                class="btn btn-secondary mr-1" title="Cancelar Edicion">
+                <fa-icon [icon]="faTimes"></fa-icon>
+              </button>
+
+              <button [ngClass]="{'invisibilidad': !endpoint.agregar}" (click)="postEndpoints(endpoint)"
+                class="btn btn-primary mr-1" title="Postear">
+                <fa-icon [icon]="enviar"></fa-icon>
+              </button>
+
+              <button [ngClass]="{'invisibilidad': !endpoint.agregar}" (click)="noAddEndpoints(endpoint)"
+                class="btn btn-secondary mr-1" title="Cancelar nuevo endpoint">
+                <fa-icon [icon]="noEditar"></fa-icon>
+              </button>
+
+              <button [ngClass]="{'invisibilidad': endpoint.editable}" [ngClass]="{'invisibilidad': endpoint.agregar}"
+                (click)="deleteEndpoints(endpoint.endpoint,endpoint.metodo)" class="btn btn-danger mr-1" title="Borrar">
+                <fa-icon [icon]="borrar"></fa-icon>
+              </button>
+
+              <button [ngClass]="{'invisibilidad': endpoint.editable}" [ngClass]="{'invisibilidad': endpoint.agregar}"
+                (click)="JSONEndpoints(endpoint.tabla)" class="btn btn-primary" title="JSON">
+                <fa-icon [icon]="JSON"></fa-icon>
+              </button>
+
+              
+            </td>
+
+
+            <!-- Modal -->
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" style="max-width: 97%;">
+                <div class="modal-content bg-dark">
+                  <div class="modal-header bg-info" style="border:none;">
+                    <h5 class="modal-title ml-4 font-weight-bold text-white" id="exampleModalLabel">
+                      Propiedades del endpoint : {{endpointSelecionado.endpoint}}
+                    </h5>
+                  </div>
+
+                  <div class="modal-body">
+                    <table class="table">
+                      <thead class="text-white text-center">
+                        <tr>
+                          <th></th>
+                          <th>Endpoint</th>
+                          <th>Metodo</th>
+                          <th>Propiedad</th>
+                          <th>Columna</th>
+                          <th>Requerido</th>
+                          <th>Tipo</th>
+                          <th>Acciones</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr *ngFor="let property of endpointSelecionado.endpointProp; let i = index">
+                          <td class="text-center text-white">{{i+1}}</td>
+
+                          <td class="text-center">
+                            <!-- <span (input)="property.endpoint=$event.target.innerHTML" [contentEditable]="contentEditable">{{property.endpoint}}</span> -->
+                            <input type="text" size="20" class="form-control" [(ngModel)]="property.endpoint"
+                              [disabled]="!property.params" required>
+                          </td>
+                          <td class="text-center">
+                            <input type="text" size="4" class="form-control" [(ngModel)]="property.metodo"
+                              [disabled]="!property.params" required>
+
+                          </td>
+                          <td class="text-center">
+                            <input type="text" size="25" class="form-control" [(ngModel)]="property.propiedad"
+                              [disabled]="!property.editableP" [disabled]="!property.editableAgregarP" required>
+
+                          </td>
+                          <td class="text-center">
+                            <input type="text" size="20" class="form-control" [(ngModel)]="property.columna"
+                              [disabled]="!property.editableP" [disabled]="!property.editableAgregarP" required>
+
+                          </td>
+                          <td class="text-center">
+                            <input type="text" size="1" class="form-control" [(ngModel)]="property.requerido"
+                              [disabled]="!property.editableP" [disabled]="!property.editableAgregarP" required>
+
+                          </td>
+                          <td class="text-center">
+                            <input type="text" size="1" class="form-control" [(ngModel)]="property.tipo"
+                              [disabled]="!property.editableP" [disabled]="!property.editableAgregarP" required>
+
+                          </td>
+
+                          <!----------------------------------Botones Modal------------------------------------------->
+
+                          <td class="text-center">
+                            <button [ngClass]="{'invisibilidad': property.editableP}"
+                              [ngClass]="{'invisibilidad': property.agregarP}"
+                              (click)="editEndpointProperties(property)" class="btn btn-warning mr-1" title="Editar">
+                              <fa-icon [icon]="editar"></fa-icon>
+                            </button>
+
+                            <button [ngClass]="{'invisibilidad': !property.editableP}" (click)="putProperties(property)"
+                              class="btn btn-dark mr-1" title="Confirmar Edicion">
+                              <fa-icon [icon]="confirmar"></fa-icon>
+                            </button>
+
+                            <button [ngClass]="{'invisibilidad': !property.editableP}"
+                              (click)="noEditEndpointProperties(property)" class="btn btn-secondary mr-1"
+                              title="Cancelar Edicion">
+                              <fa-icon [icon]="faTimes"></fa-icon>
+                            </button>
+
+                            <button [ngClass]="{'invisibilidad': !property.agregarP}" (click)="postProperties(property)"
+                              class="btn btn-primary mr-1" title="Postear">
+                              <fa-icon [icon]="enviar"></fa-icon>
+                            </button>
+
+                            <button [ngClass]="{'invisibilidad': !property.agregarP}"
+                              (click)="noAddProperties(property)" class="btn btn-secondary mr-1"
+                              title="Cancelar nuevo endpoint">
+                              <fa-icon [icon]="noEditar"></fa-icon>
+                            </button>
+
+                            <button [ngClass]="{'invisibilidad': property.editableP}"
+                              [ngClass]="{'invisibilidad': property.agregarP}"
+                              (click)="deleteProperties(property.endpoint,property.metodo,property.propiedad)"
+                              class="btn btn-danger" title="Borrar">
+                              <fa-icon [icon]="borrar"></fa-icon>
+                            </button>
+
+                            <!----------------------------------Finish Botones Modal------------------------------------------->
+
+                            <!-- <button (click)="editEndpointProperties(property)"
+                              [ngClass]="{'invisibilidad': property.editableP}" [ngClass]="{'invisibilidad': property.agregarP}" class="btn btn-warning mr-1"
+                              title="Editar">
+                              <fa-icon [icon]="editar"></fa-icon>
+                            </button>
+
+                            <button (click)="putProperties(property)" [ngClass]="{'invisibilidad': !property.editableP}" [ngClass]="{'invisibilidad': !property.agregarP}"
+                              class="btn btn-dark mr-1" title="Confirmar Edicion">
+                              <fa-icon [icon]="confirmar"></fa-icon>
+                            </button>
+
+                            <button (click)="noEditEndpointProperties(property)"
+                              [ngClass]="{'invisibilidad': !property.editableP}" [ngClass]="{'invisibilidad': !property.agregarP}"  class="btn btn-secondary mr-1"
+                                title="Cancelar Edicion">
+                              <fa-icon [icon]="faTimes"></fa-icon>
+                            </button>
+
+                            <button [ngClass]="{'invisibilidad': !property.agregarP}" (click)="noAddProperties(property)"
+                              class="btn btn-secondary mr-1" title="Cancelar nueva propiedad">
+                              <fa-icon [icon]="faTimes"></fa-icon>
+                            </button>
+
+                            <button (click)="deleteProperties(property.endpoint,property.metodo,property.propiedad)"
+                              [ngClass]="{'invisibilidad': property.editableP}" [ngClass]="{'invisibilidad': property.agregarP}" class="btn btn-danger mr-1"
+                              title="Borrar">
+                              <fa-icon [icon]="borrar"></fa-icon>
+                            </button> -->
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="modal-footer" style="border:none !important;">
+                    <button class="btn btn-success" [ngClass]="{'invisibilidad': property.agregarP}"
+                      (click)="addProperties()" title="Agregar nueva propiedad">
+                      <fa-icon [icon]="agregar"></fa-icon>
+                    </button>
+                    <button type="button" [ngClass]="{'invisibilidad': property.agregarP}" class="btn btn-secondary"
+                      title="Agregar nueva propiedad" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Finish Modal -->
+
+          </tr>
+        </tbody>
+      </table>
+
+      <span class="float-right" id="add_btn">
+        <button class="btn btn-success" [ngClass]="{'invisibilidad': endpoint.agregar}" (click)="addEndpoints()"
+          title="Agregar nuevo endpoint">
+          <fa-icon [icon]="agregar"></fa-icon>
+        </button>
+      </span>
+    </div>
+  </div>
+</div>

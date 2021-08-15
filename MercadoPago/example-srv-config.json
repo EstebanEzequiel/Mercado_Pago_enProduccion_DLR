@@ -1,0 +1,31 @@
+{
+  "puerto": 9003,
+  "url_ipn": "http://soportedlr.com.ar:9003/",
+  "sponsor_id": 0,
+
+  "database": {
+    "user": "postgres",
+    "password": "456",
+    "database": "mercadopago",
+    "host": "localhost",
+    "port": 5432      
+  },
+
+  "domains":[
+    {
+      "domain": "mmax",
+      "token": "DLR-AE4320CC54E4A85A4AC9ED7A64682F5B46A2",
+      "tokenMP": "APP_USR-6848942778215476-031814-e56e1d303b386321092244269f1eddb3-730655432"
+    },
+    {
+      "domain": "dlr",
+      "token": "DLR-AE4320CC54E4A85A4AC9ED7A64682F5B46A2",
+      "tokenMP": "APP_USR-6848942778215476-031814-e56e1d303b386321092244269f1eddb3-730655432"
+    },
+    {
+      "domain": "gomezpardo",
+      "token": "DLR-AE4320CC54E4A85A4AC9ED7A64682F5B46A2",
+      "tokenMP": "APP_USR-6848942778215476-031814-e56e1d303b386321092244269f1eddb3-730655432"
+    }
+  ]
+}

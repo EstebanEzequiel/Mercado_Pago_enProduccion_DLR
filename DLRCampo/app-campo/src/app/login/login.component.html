@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row d-flex align-items-center justify-content-center vh-100">
+        <div class="modal-dialog text-center">
+            <div class="col-12">
+                <div class="modal-content">
+                    <div class="col-12 user-img">
+                        <img src="../assets/img/icon-user.png" alt="Usuario">
+                    </div>
+                    <form class="col-12" th:action="@{/login}" method="get">
+                        <div class="form-group" id="user-group">
+                            <i class="bi bi-person"></i>
+                            <input type="text" class="form-control" [(ngModel)]="usuarioIng" placeholder="Nombre de usuario" name="username"/>
+                        </div>
+                        <div class="form-group" id="contrasena-group">
+                            <i class="bi bi-lock"></i>
+                            <input type="password" class="form-control" [(ngModel)]="passwordIng" placeholder="Contraseña" name="password"/>
+                        </div>
+                        <button (click)="onSumbit()" type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                    </form>
+                    <div class="col-12 forgot">
+                        <a href="#">Recordar contraseña?</a>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

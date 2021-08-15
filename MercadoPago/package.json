@@ -1,0 +1,22 @@
+{
+  "name": "mercado_pago",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "bin": "server.js",
+  "author": "ezequiel",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "nodemon": "^2.0.7",
+    "pg-promise": "^10.9.5",
+    "request": "^2.88.2",
+    "winston": "^3.3.3"
+  }
+}

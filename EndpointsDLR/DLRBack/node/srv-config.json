@@ -1,0 +1,11 @@
+{
+    "puerto": 9003,
+    "database": 
+    {
+      "user": "postgres",
+      "password": "456",
+      "database": "campo",
+      "host": "localhost",
+      "port": 5432
+    }
+}

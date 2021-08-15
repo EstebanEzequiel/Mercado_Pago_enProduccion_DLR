@@ -1,0 +1,42 @@
+#carouselExampleControls{
+    color: white;
+}
+
+.carousel-inner{
+    display: block;
+    justify-content: center;
+}
+
+h3{
+    margin: auto;
+    margin-bottom: 25px;
+   text-align: center;
+}
+
+.carousel-control-prev{
+    width: 15%;
+    height: 15%;
+    margin-left: 40px;
+    margin-top: 10px;
+    display: block;
+    justify-content: left;
+    visibility: visible;
+}
+
+.carousel-control-next{
+    width: 15%;
+    height: 15%;
+    margin-right: 40px;
+    margin-top: 10px;
+    display: block;
+    justify-content: right;
+    visibility: visible;
+}
+
+#btn-menu:checked ~ .carousel-control-prev{
+    visibility: hidden;
+}
+
+#btn-menu:checked ~ .carousel-control-next{
+    visibility: hidden;
+}

@@ -1,0 +1,1 @@
+npm install -g modclean & modclean --run & npm install -g pkg & pkg -t win .

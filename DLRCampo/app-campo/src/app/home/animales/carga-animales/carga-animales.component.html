@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-7">
+      <form action="" class="text-white">
+        <div class="form-group">
+          <label class="form-label">ID</label>
+          <input type="text" class="form-control" placeholder="" name='first' [(ngModel)]="animales.idanimal">
+      </div>
+        <div class="form-group">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" placeholder="" name='first' [(ngModel)]="animales.nombre">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tropilla</label>
+          <input type="text" class="form-control" placeholder="" name='first' [(ngModel)]="animales.tropilla">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Categoria</label>
+          <input type="text" class="form-control" placeholder="" name='first' [(ngModel)]="animales.categoria">
+        </div>  
+        <div class="form-group">
+          <label class="form-label">Oreja izquierda</label>
+          <input type="text" class="form-control" placeholder="" name='first' [(ngModel)]="animales.orejaizquierda">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Oreja derecha</label>
+          <input type="text" class="form-control" placeholder="" name='first' [(ngModel)]="animales.orejaderecha">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Fecha de alta</label>
+          <input type="text" class="form-control" placeholder="" name='first' [(ngModel)]="animales.alta">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Fecha de baja</label>
+          <input type="text" class="form-control" placeholder="" name='first' [(ngModel)]="animales.baja">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Causa de baja</label>
+          <input type="text" class="form-control" placeholder="" name='first' [(ngModel)]="animales.causabaja">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Peso</label>
+          <input type="text" class="form-control" placeholder="" name='first' [(ngModel)]="animales.peso">
+        </div>
+        <div class="form-group text-center"><br>
+          <button (click)='postAnimales(animales)' class="btn btn-lg btn-outline-secondary text-white h6">Alta del Animal</button>
+        </div>
+      </form>
+      <br><br>
+    </div>
+  </div>
+</div>

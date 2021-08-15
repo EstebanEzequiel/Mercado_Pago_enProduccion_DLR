@@ -1,0 +1,21 @@
+
+<div style="max-height:75vh; overflow-y: scroll;">
+    <table class="table table-striped table-warning">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">
+                    Causa de Baja
+                </th>
+                <th scope="col">
+                    Nombre
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let causabaja of causasbaja; let i = index" class="text-center">
+                <td>{{causabaja.causabaja}}</td>
+                <td>{{causabaja.nombre}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,54 @@
+<section class="capa">
+	<div id="container-carga">
+		<div id="carga"></div>
+	</div>
+	<div class="container-fluid">
+		<nav class="navbar navbar-expand navbar-dark" style="background-color: #202020; font-size: 17px;">
+			<div class="container-fluid">
+				<div class="btn-menu">
+					<label for="btn-menu"><span class="navbar-toggler-icon"></span></label>
+				</div>
+				
+				<div class="navbar-collapse">
+					<ul class="navbar-nav flex-row">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
+						<!-- <li class="nav-item">
+							<a class="nav-link" href="#" tabindex="-1">Contacto DLR</a>
+						</li> -->
+					</ul>
+					<div class="d-flex justify-content-end w-100">
+					</div>
+				</div>
+			</div>
+		</nav>
+		<br>
+		<div class="container">
+			<div class="row" style="font-size: small;">
+				<div class="col-12">
+					<router-outlet></router-outlet>
+				</div>
+			</div>
+
+			<input type="checkbox" id="btn-menu">
+			<div class="container-menu">
+				<div class="cont-menu">
+					<nav>
+						<div class="usuario">
+							<h4>Hola, </h4>
+							<h4 class="username">{{username}}</h4>
+						</div>
+						<!-- <label class="label-button" href="user" for="btn-menu"><a>{{username}}</a></label> -->
+						<label class="label-button" routerLink="animales" for="btn-menu"><a>Animales</a></label>
+						<label class="label-button" routerLink="tropillas" for="btn-menu"><a>Tropillas</a></label>
+						<label class="label-button" routerLink="corrales" for="btn-menu"><a>Corrales</a></label>
+						<label class="label-button" routerLink="causasdebaja" for="btn-menu"><a>Causas de Baja</a></label>
+						<label class="label-button" href="*" (click)="cerrarSession()" for="btn-menu"><a>Salir de la App</a></label>
+					</nav>
+					<label class="label-cruz" for="btn-menu">✖️</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

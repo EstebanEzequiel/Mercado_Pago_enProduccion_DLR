@@ -1,0 +1,49 @@
+
+<div style="max-height:75vh; overflow-y: scroll;">
+    <table class="table table-responsive-xl table-striped table-warning" >
+        <thead>
+            <tr class="text-center">
+                <th scope="col">
+                    Nombre
+                </th>
+                <th scope="col">
+                    Tropilla
+                </th>
+                <th scope="col">
+                    Categoria
+                </th>
+                <th scope="col">
+                    Oreja_Izquierda
+                </th>
+                <th scope="col">
+                    Oreja_Derecha
+                </th>
+                <th scope="col">
+                    Alta
+                </th>
+                <th scope="col">
+                    Baja
+                </th>
+                <th scope="col">
+                    Causa_Baja
+                </th>
+                <th scope="col">
+                    Peso
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let animal of animales; let i = index" class="text-center">
+                <td>{{animal.nombre}}</td>
+                <td>{{animal.tropilla}}</td>
+                <td>{{animal.categoria}}</td>
+                <td>{{animal.orejaizquierda}}</td>
+                <td>{{animal.orejaderecha}}</td>
+                <td>{{animal.alta}}</td>
+                <td>{{animal.baja}}</td>
+                <td>{{animal.causabaja}}</td>
+                <td>{{animal.peso}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

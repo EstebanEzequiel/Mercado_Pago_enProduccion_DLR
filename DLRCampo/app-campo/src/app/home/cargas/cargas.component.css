@@ -1,0 +1,32 @@
+#carouselExampleControls{
+    color: white;
+}
+
+.carousel-inner{
+    display: block;
+    justify-content: center;
+}
+
+h3{
+    margin: auto;
+    margin-bottom: 25px;
+   text-align: center;
+}
+
+.carousel-control-prev{
+    width: 15%;
+    height: 15%;
+    margin-left: 150px;
+    margin-top: 10px;
+    display: block;
+    justify-content: left;
+}
+
+.carousel-control-next{
+    width: 15%;
+    height: 15%;
+    margin-right: 150px;
+    margin-top: 10px;
+    display: block;
+    justify-content: right;
+}

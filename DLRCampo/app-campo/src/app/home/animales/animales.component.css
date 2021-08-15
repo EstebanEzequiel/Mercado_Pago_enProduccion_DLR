@@ -1,0 +1,44 @@
+.table{
+    margin-bottom: 0;
+}
+
+.visibilidad{
+    display: block;
+}
+.invisibilidad{
+    display: none;
+}
+
+.container-fluid{
+    padding: 0 !important;
+}
+
+.container-fluid input {
+    border-radius: 0.2rem 0 0 0.2rem !important; 
+    background-color: #ffeeba; 
+    border: none;
+    width: 20%;
+}
+
+.container-fluid span{
+    border-radius: 0 0.2rem 0.2rem 0 !important;
+    background-color: #ffeeba; 
+    border: 1px solid #ffeeba;
+}
+
+.inputs{
+    border: 0;
+    background-color: transparent;
+    text-align: center;
+}
+
+.table td{
+    padding: 8px 4px 8px;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 425px) {
+    .container-fluid input{
+        width: 100% !important;
+    }
+}
