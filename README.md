@@ -1,1 +1,0 @@
-Proyectos de carácter formativo en DLR Software mediante el programa CLIP. El proyecto MercadoPago fue llevado a producción y consiste en un REST server que integra a Mercado Pago con el fin de construir el circuito de pagos con QR. Posteriormente fue implementado en sucursales de Mariano Max
