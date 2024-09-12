@@ -1,1 +1,1 @@
-El proyecto consiste en un servicio web que gestiona las solicitudes de pago en cajas de sucursales Mariano Max, integrando la API Mercado Pago para cobrar con QR
+El proyecto se realizo en 2021 en la empresa DLR software (https://dlr.com.ar/) y consiste en un servicio web que gestiona las solicitudes de pago en cajeros de sucursales Mariano Max, integrando la API de Mercado Pago (y modelo atendido) para pagos con QR.
